@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <p>Current user = <%= current_user.email if current_user %></p>
+    <%= link_to 'Logout', logout_path, method: :delete %>
     <%= yield %>
   </body>
 </html>
