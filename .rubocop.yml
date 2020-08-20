@@ -12,6 +12,9 @@ AllCops:
     - 'actiontext/test/dummy/**/*'
     - '**/node_modules/**/*'
     - '**/test/channels/application_cable/connection_test.rb'
+    - '**/db/migrate/**/*'
+    - '**/db/schema.rb'
+    - '**/config/initializers/simple_form.rb'
 
 Rails/Present:
   Enabled: false
