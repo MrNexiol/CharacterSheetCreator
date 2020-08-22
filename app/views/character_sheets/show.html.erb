@@ -1,1 +1,11 @@
-Character sheet
+<p>Character sheet - <%= @sheet.name %></p>
+<ul class="list-disc list-inside">
+  <li>Brawn - <%= @sheet.brawn %></li>
+  <li>Determination - <%= @sheet.determination %></li>
+  <li>Intelligence - <%= @sheet.intelligence %></li>
+  <li>Perception - <%= @sheet.perception %></li>
+  <li>Dexterity - <%= @sheet.dexterity %></li>
+  <li>Agility - <%= @sheet.agility %></li>
+</ul>
+<p>Experience points - <%= @sheet.experience %></p>
+<p>Money: Card - <%= @sheet.money %> Barter - <%= @sheet.barter %></p>

@@ -7,6 +7,10 @@ class CharacterSheetsController < ApplicationController
     @sheets = @user.character_sheets
   end
 
+  def show
+    @sheet = CharacterSheet.find(params[:id])
+  end
+
   def new
     @sheet = @user.character_sheets.build
   end
