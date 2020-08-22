@@ -1,3 +1,7 @@
-<% @sheets.each do |sheet| %>
-  <%= sheet.name %>
-<% end %>
+<ul class="list-disc list-inside">
+  <% @sheets.each do |sheet| %>
+    <li>
+      <%= link_to sheet.name, user_character_sheet_path(@user, sheet) %>
+    </li>
+  <% end %>
+</ul>
