@@ -5,18 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
-    <% end %>
-    <p>Current user = <%= current_user.email if current_user %></p>
-    <%= link_to 'Logout', logout_path, method: :delete %>
+  <body class="bg-blue-500">
+    <%= render 'shared/navbar' %>
     <%= yield %>
   </body>
 </html>
