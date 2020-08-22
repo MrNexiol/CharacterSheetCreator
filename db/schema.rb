@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_103451) do
+ActiveRecord::Schema.define(version: 2020_08_22_202033) do
 
   create_table "character_sheets", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_08_22_103451) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "brawn", default: 10
+    t.integer "intelligence", default: 10
+    t.integer "perception", default: 10
+    t.integer "agility", default: 10
+    t.integer "dexterity", default: 10
+    t.integer "determination", default: 10
+    t.float "barter", default: 0.0
+    t.float "money", default: 0.0
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
