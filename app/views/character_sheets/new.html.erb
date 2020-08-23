@@ -1,7 +1,7 @@
 <div data-controller="new-character-sheet">
   <%= simple_form_for [@user, @sheet] do |f| %>
     <%= f.input :name %>
-    <%= f.input :experience %>
+    <%= f.input :experience, readonly: true, input_html: {'data-target': 'new-character-sheet.exp', class: 'bg-transparent'} %>
     <table class="table-auto">
       <tr>
         <td>

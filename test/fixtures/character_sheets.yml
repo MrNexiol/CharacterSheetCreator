@@ -1,4 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: character_sheets
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  experience    :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :integer
+#  brawn         :integer          default(10)
+#  intelligence  :integer          default(10)
+#  perception    :integer          default(10)
+#  agility       :integer          default(10)
+#  dexterity     :integer          default(10)
+#  determination :integer          default(10)
+#  barter        :float            default(0.0)
+#  money         :float            default(0.0)
+#  description   :string
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
