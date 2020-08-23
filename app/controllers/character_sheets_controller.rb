@@ -29,7 +29,8 @@ class CharacterSheetsController < ApplicationController
   private
 
   def character_sheet_params
-    params.require(:character_sheet).permit(:name, :experience)
+    params.require(:character_sheet).permit(:name, :experience, :brawn, :determination,
+                                            :intelligence, :perception, :dexterity, :agility)
   end
 
   def fetch_user
