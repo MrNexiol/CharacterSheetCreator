@@ -1,5 +1,94 @@
-<%= simple_form_for [@user, @sheet] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :experience %>
-  <%= f.button :submit %>
-<% end %>
+<div data-controller="new-character-sheet">
+  <%= simple_form_for [@user, @sheet] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :experience %>
+    <table class="table-auto">
+      <tr>
+        <td>
+          <%= f.label :brawn %>
+        </td>
+        <td class="w-32">
+          <%= f.input :brawn, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.brawn', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="0" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+        <td>
+          <button type="button" data-id="0" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="pr-6">
+          <%= f.label :determination %>
+        </td>
+        <td>
+          <%= f.input :determination, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.deter', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="1" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+
+        <td>
+          <button type="button" data-id="1" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :intelligence %>
+        </td>
+        <td>
+          <%= f.input :intelligence, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.intel', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="2" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+        <td>
+          <button type="button" data-id="2" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :perception %>
+        </td>
+        <td>
+          <%= f.input :perception, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.perce', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="3" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+        <td>
+          <button type="button" data-id="3" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :dexterity %>
+        </td>
+        <td>
+          <%= f.input :dexterity, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.dexte', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="4" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+        <td>
+          <button type="button" data-id="4" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :agility %>
+        </td>
+        <td>
+          <%= f.input :agility, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.agili', class: 'bg-transparent'} %>
+        </td>
+        <td>
+          <button type="button" data-id="5" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+        </td>
+        <td>
+          <button type="button" data-id="5" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+        </td>
+      </tr>
+    </table>
+    <%= f.button :submit %>
+  <% end %>
+</div>
