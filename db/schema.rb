@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_202033) do
+ActiveRecord::Schema.define(version: 2020_08_23_180411) do
 
   create_table "character_sheets", force: :cascade do |t|
     t.string "name"
-    t.integer "experience"
+    t.integer "experience", default: 150
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
