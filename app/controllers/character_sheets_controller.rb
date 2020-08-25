@@ -14,7 +14,7 @@ class CharacterSheetsController < ApplicationController
   def new
     @sheet = @user.character_sheets.build do |cs|
       Skill.all.each do |skill|
-        cs.character_sheet_skills.new(skill: skill)
+        cs.character_sheet_skills.new(skill: skill, value: skill.start_value)
       end
     end
   end

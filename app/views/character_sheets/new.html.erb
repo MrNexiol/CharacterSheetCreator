@@ -89,13 +89,26 @@
         </td>
       </tr>
     </table>
-    <%= f.simple_fields_for :character_sheet_skills do |cs| %>
-      <p><%= cs.input :name, readonly: true, input_html: { class: 'bg-transparent' } %></p>
-      <div class="field">
-        <%= cs.input :value %>
-      </div>
-      <%= cs.input :skill_id, as: :hidden %>
-    <% end %>
+    <br/><h1 class="font-black">Skille</h1>
+    <table>
+      <%= f.simple_fields_for :character_sheet_skills do |cs| %>
+        <tr>
+          <td><%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %></td>
+          <td>
+            <div class="field">
+              <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+            </div>
+            <%= cs.input :skill_id, as: :hidden %>
+          </td>
+          <td>
+            <button type="button">-</button>
+          </td>
+          <td>
+            <button type="button">+</button>
+          </td>
+        </tr>
+      <% end %>
+    </table>
     <%= f.button :submit %>
   <% end %>
 </div>
