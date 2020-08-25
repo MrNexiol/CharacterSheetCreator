@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: character_sheet_skills
+#
+#  id                 :integer          not null, primary key
+#  skill_id           :integer
+#  character_sheet_id :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  value              :integer
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

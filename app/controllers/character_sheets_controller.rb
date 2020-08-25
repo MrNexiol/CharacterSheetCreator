@@ -12,7 +12,11 @@ class CharacterSheetsController < ApplicationController
   end
 
   def new
-    @sheet = @user.character_sheets.build
+    @sheet = @user.character_sheets.build do |cs|
+      Skill.all.each do |skill|
+        cs.character_sheet_skills.new(skill: skill)
+      end
+    end
   end
 
   def create
@@ -30,7 +34,8 @@ class CharacterSheetsController < ApplicationController
 
   def character_sheet_params
     params.require(:character_sheet).permit(:name, :experience, :brawn, :determination,
-                                            :intelligence, :perception, :dexterity, :agility)
+                                            :intelligence, :perception, :dexterity, :agility,
+                                            character_sheet_skills_attributes: %i[skill_id value])
   end
 
   def fetch_user

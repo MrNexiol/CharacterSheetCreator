@@ -7,5 +7,11 @@
   <li>Dexterity - <%= @sheet.dexterity %></li>
   <li>Agility - <%= @sheet.agility %></li>
 </ul>
+<% @sheet.character_sheet_skills.all.each do |skill| %>
+  <p>
+    <%= skill.name %>
+    <%= skill.value %>
+  </p>
+<% end %>
 <p>Experience points - <%= @sheet.experience %></p>
 <p>Money: Card - <%= @sheet.money %> Barter - <%= @sheet.barter %></p>
