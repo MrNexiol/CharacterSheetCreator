@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
     <title>CharacterSheetCreator</title>
     <%= csrf_meta_tags %>
@@ -8,9 +8,15 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body class="bg-blue-500">
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div class="mx-auto p-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
