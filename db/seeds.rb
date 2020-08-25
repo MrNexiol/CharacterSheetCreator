@@ -10,6 +10,9 @@
 
 User.create(username: 'Tomaszowy', email: 'admin@example.com', password: '123456')
 
-10.times do |i|
-  Skill.create(name: "Skill #{i + 1}")
-end
+Skill.create(name: 'Obserwacja', start_value: 8, parent_stat: 'perception')
+Skill.create(name: 'Manipulacja', start_value: 8, parent_stat: 'perception')
+Skill.create(name: 'Komunikacja', start_value: 8, parent_stat: 'perception')
+Skill.create(name: 'Siła', start_value: 8, parent_stat: 'brawn')
+Skill.create(name: 'Odporność na ból', start_value: 8, parent_stat: 'determination')
+Skill.create(name: 'Kanalarstwo', start_value: 0, parent_stat: 'perception')
