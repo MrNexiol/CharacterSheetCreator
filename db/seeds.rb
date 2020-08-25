@@ -9,3 +9,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'Tomaszowy', email: 'admin@example.com', password: '123456')
+
+10.times do |i|
+  Skill.create(name: "Skill #{i + 1}")
+end

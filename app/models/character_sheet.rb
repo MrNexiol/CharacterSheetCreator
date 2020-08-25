@@ -6,7 +6,7 @@
 #
 #  id            :integer          not null, primary key
 #  name          :string
-#  experience    :integer
+#  experience    :integer          default(150)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :integer
@@ -21,5 +21,9 @@
 #  description   :string
 #
 class CharacterSheet < ApplicationRecord
+  has_many :character_sheet_skills, dependent: :destroy
+  has_many :skills, through: :character_sheet_skills
   belongs_to :user
+
+  accepts_nested_attributes_for :character_sheet_skills
 end

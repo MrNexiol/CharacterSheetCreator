@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_180411) do
+ActiveRecord::Schema.define(version: 2020_08_25_071905) do
+
+  create_table "character_sheet_skills", force: :cascade do |t|
+    t.integer "skill_id"
+    t.integer "character_sheet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "value"
+    t.index ["character_sheet_id"], name: "index_character_sheet_skills_on_character_sheet_id"
+    t.index ["skill_id"], name: "index_character_sheet_skills_on_skill_id"
+  end
 
   create_table "character_sheets", force: :cascade do |t|
     t.string "name"
@@ -27,6 +37,13 @@ ActiveRecord::Schema.define(version: 2020_08_23_180411) do
     t.float "barter", default: 0.0
     t.float "money", default: 0.0
     t.string "description"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "parent_stat"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
