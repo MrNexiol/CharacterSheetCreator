@@ -15,4 +15,6 @@ class Skill < ApplicationRecord
   has_many :character_sheets, through: :character_sheet_skills
 
   attr_reader :value
+
+  STAT_NAMES = %w[brawn determination intelligence perception dexterity agility].freeze
 end
