@@ -7,9 +7,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :brawn, class: 'font-bold' %>
-          <%= f.input :brawn, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.brawn', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="0" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="0" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :brawn, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="0" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="0" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
           <hr>
         </div>
         <hr>
@@ -20,9 +20,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :determination, class: 'font-bold' %>
-          <%= f.input :determination, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.deter', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="1" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="1" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :determination, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="1" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="1" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
           <hr>
         </div>
         <hr>
@@ -33,9 +33,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :intelligence, class: 'font-bold' %>
-          <%= f.input :intelligence, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.intel', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="2" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="2" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :intelligence, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="2" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="2" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
           <hr>
         </div>
         <hr>
@@ -46,9 +46,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :perception, class: 'font-bold' %>
-          <%= f.input :perception, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.perce', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="3" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="3" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :perception, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="3" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="3" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
         </div>
         <hr>
         <div class="flex flex-col px-4 py-2">
@@ -58,9 +58,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :dexterity, class: 'font-bold' %>
-          <%= f.input :dexterity, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.dexte', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="4" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="4" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :dexterity, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="4" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="4" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
           <hr>
         </div>
         <hr>
@@ -71,9 +71,9 @@
       <div class="bg-white rounded-md shadow-lg">
         <div class="flex flex-row px-4 py-2">
           <%= f.label :agility, class: 'font-bold' %>
-          <%= f.input :agility, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.agili', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
-          <button type="button" data-id="5" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
-          <button type="button" data-id="5" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
+          <%= f.input :agility, label: false, readonly: true, input_html: {'data-target': 'new-character-sheet.stat', class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+          <button class="bg-red-600 w-6" type="button" data-id="5" data-target="new-character-sheet.minus" data-action="click -> new-character-sheet#changeStat">-</button>
+          <button class="bg-green-600 w-6" type="button" data-id="5" data-target="new-character-sheet.plus" data-action="click -> new-character-sheet#changeStat">+</button>
           <hr>
         </div>
         <hr>
