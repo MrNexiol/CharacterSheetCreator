@@ -1,0 +1,68 @@
+<%= form.simple_fields_for :character_sheet_skills do |cs| %>
+  <% if cs.object.skill.parent_stat == 'brawn' %>
+    <% content_for :brawn do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if cs.object.skill.parent_stat == 'determination' %>
+    <% content_for :determination do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if cs.object.skill.parent_stat == 'intelligence' %>
+    <% content_for :intelligence do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if cs.object.skill.parent_stat == 'perception' %>
+    <% content_for :perception do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if cs.object.skill.parent_stat == 'dexterity' %>
+    <% content_for :dexterity do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if cs.object.skill.parent_stat == 'agility' %>
+    <% content_for :agility do %>
+      <div class="flex flex-justify-start">
+        <%= cs.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent'} %>
+        <%= cs.input :value, label: false, readonly: true, input_html: {class: 'bg-transparent w-10 cursor-default select-none outline-none'} %>
+        <%= cs.input :skill_id, as: :hidden %>
+        <button type="button">-</button>
+        <button type="button">+</button>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
