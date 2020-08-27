@@ -1,7 +1,23 @@
-<% id = 0 %>
+<%
+  id = 0
+  brawn = 0
+  determination = 0
+  intelligence = 0
+  perception = 0
+  dexterity = 0
+  agility = 0
+%>
 <%= form.simple_fields_for :character_sheet_skills do |cs| %>
   <% if cs.object.skill.parent_stat == 'brawn' %>
     <% content_for :brawn do %>
+      <% if cs.object.skill.start_value == 4 && brawn == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% brawn += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && brawn == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% brawn += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '0', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
@@ -14,6 +30,14 @@
   <% end %>
   <% if cs.object.skill.parent_stat == 'determination' %>
     <% content_for :determination do %>
+      <% if cs.object.skill.start_value == 4 && determination == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% determination += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && determination == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% determination += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '1', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
@@ -26,6 +50,14 @@
   <% end %>
   <% if cs.object.skill.parent_stat == 'intelligence' %>
     <% content_for :intelligence do %>
+      <% if cs.object.skill.start_value == 4 && intelligence == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% intelligence += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && intelligence == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% intelligence += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '2', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
@@ -38,6 +70,14 @@
   <% end %>
   <% if cs.object.skill.parent_stat == 'perception' %>
     <% content_for :perception do %>
+      <% if cs.object.skill.start_value == 4 && perception == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% perception += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && perception == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% perception += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '3', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
@@ -50,6 +90,14 @@
   <% end %>
   <% if cs.object.skill.parent_stat == 'dexterity' %>
     <% content_for :dexterity do %>
+      <% if cs.object.skill.start_value == 4 && dexterity == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% dexterity += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && dexterity == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% dexterity += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '4', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
@@ -62,6 +110,14 @@
   <% end %>
   <% if cs.object.skill.parent_stat == 'agility' %>
     <% content_for :agility do %>
+      <% if cs.object.skill.start_value == 4 && agility == 0 %>
+        <h2 class="font-bold pt-4">Rzadkie</h2>
+        <% agility += 1 %>
+      <% end %>
+      <% if cs.object.skill.start_value == 0 && agility == 1 %>
+        <h2 class="font-bold pt-4">Bardzo rzadkie</h2>
+        <% agility += 1 %>
+      <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
         <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '5', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
