@@ -26,4 +26,13 @@ class CharacterSheet < ApplicationRecord
   belongs_to :user
 
   accepts_nested_attributes_for :character_sheet_skills
+
+  validates :name, presence: true
+  validates :experience, numericality: { greater_than_or_equal_to: 0 }
+  validates :brawn, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  validates :determination, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  validates :intelligence, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  validates :perception, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  validates :dexterity, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  validates :agility, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
 end
