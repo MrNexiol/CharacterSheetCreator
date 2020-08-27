@@ -16,4 +16,6 @@ class CharacterSheetSkill < ApplicationRecord
   belongs_to :character_sheet
 
   delegate :name, to: :skill
+
+  validates :value, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 25 }
 end
