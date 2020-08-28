@@ -50,6 +50,12 @@ export default class extends Controller {
     })
   }
 
+  getSkillByEqualityToStat(id){
+    return this.skillTargets.find(obj => {
+      return obj.dataset.parent == id && obj.dataset.isequal == "true"
+    })
+  }
+
   changeSkill(e){
     const buttonId = e.target.dataset.id
     const skill = this.getSkillById(buttonId)
@@ -65,12 +71,22 @@ export default class extends Controller {
 
   changeStat(e){
     const buttonId = e.target.dataset.id
+    let skill = this.getSkillByEqualityToStat(buttonId)
     if (e.target.innerHTML == '+'){
       this.changeExpFromStat(parseInt(this.statTargets[buttonId].value), true)
       this.statTargets[buttonId].value++
+      if (skill && parseInt(skill.value) < parseInt(this.statTargets[buttonId].value)) {
+        skill.value = parseInt(this.statTargets[buttonId].value)
+      }
     } else {
       this.changeExpFromStat(parseInt(this.statTargets[buttonId].value), false)
       this.statTargets[buttonId].value--
+      if (skill && (parseInt(skill.value) - parseInt(this.statTargets[buttonId].value)) == 1) {
+        skill.value = parseInt(this.statTargets[buttonId].value)
+      }
+    }
+    if (skill){
+      skill.dataset.base = parseInt(this.statTargets[buttonId].value)
     }
     this.checkPoints()
   }
@@ -122,14 +138,14 @@ export default class extends Controller {
 
   checkSkillLevels(){
     for (let i = 0; i < this.skillTargets.length; i++){
-      const parentId = this.skillTargets[i].dataset.parent
-      const skillId = this.skillTargets[i].dataset.id
-      this.getSkillButtonById(skillId, false).disabled = parseInt(this.skillTargets[i].value) <= parseInt(this.skillTargets[i].dataset.base);
-
-      if (parseInt(this.skillTargets[i].value) < parseInt(this.statTargets[parentId].value) && parseInt(this.skillTargets[i].value) < 25){
+      const skill = this.skillTargets[i]
+      const parentId = skill.dataset.parent
+      const skillId = skill.dataset.id
+      this.getSkillButtonById(skillId, false).disabled = parseInt(skill.value) <= parseInt(skill.dataset.base);
+      if (parseInt(skill.value) < parseInt(this.statTargets[parentId].value) && parseInt(skill.value) < 25){
         this.getSkillButtonById(skillId, true).disabled = parseInt(this.expTarget.value) <= 0;
-      }else if (parseInt(this.skillTargets[i].value) >= parseInt(this.statTargets[parentId].value) && parseInt(this.skillTargets[i].value) < 25) {
-        this.getSkillButtonById(skillId, true).disabled = parseInt(this.expTarget.value) < (parseInt(this.skillTargets[i].value) - parseInt(this.statTargets[parentId].value))+2;
+      }else if (parseInt(skill.value) >= parseInt(this.statTargets[parentId].value) && parseInt(skill.value) < 25) {
+        this.getSkillButtonById(skillId, true).disabled = parseInt(this.expTarget.value) < (parseInt(skill.value) - parseInt(this.statTargets[parentId].value))+2;
       } else {
         this.getSkillButtonById(skillId, true).disabled = true
       }

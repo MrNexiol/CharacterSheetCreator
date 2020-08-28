@@ -10,16 +10,16 @@
 
 User.create(username: 'Tomaszowy', email: 'admin@example.com', password: '123456')
 
-Skill.create(name: 'Siła', start_value: 8, parent_stat: Skill::STAT_NAMES[0])
+Skill.create(name: 'Siła', start_value: 8, parent_stat: Skill::STAT_NAMES[0], is_equal_to_stat: true)
 Skill.create(name: 'Pływanie', start_value: 8, parent_stat: Skill::STAT_NAMES[0])
 Skill.create(name: 'Ciężarowiec', start_value: 4, parent_stat: Skill::STAT_NAMES[0])
 
-Skill.create(name: 'Odporność na ból', start_value: 8, parent_stat: Skill::STAT_NAMES[1])
+Skill.create(name: 'Odporność na ból', start_value: 8, parent_stat: Skill::STAT_NAMES[1], is_equal_to_stat: true)
 Skill.create(name: 'Instynkt walki', start_value: 4, parent_stat: Skill::STAT_NAMES[1])
 Skill.create(name: 'Medytacja', start_value: 4, parent_stat: Skill::STAT_NAMES[1])
 
 Skill.create(name: 'Czytanie i pisanie', start_value: 8, parent_stat: Skill::STAT_NAMES[2])
-Skill.create(name: 'Język ojczysty', start_value: 8, parent_stat: Skill::STAT_NAMES[2])
+Skill.create(name: 'Język ojczysty', start_value: 8, parent_stat: Skill::STAT_NAMES[2], is_equal_to_stat: true)
 Skill.create(name: 'Przebieranie się', start_value: 8, parent_stat: Skill::STAT_NAMES[2])
 Skill.create(name: 'Używanie elektroniki', start_value: 8, parent_stat: Skill::STAT_NAMES[2])
 Skill.create(name: 'Używanie komputera', start_value: 8, parent_stat: Skill::STAT_NAMES[2])
@@ -92,7 +92,7 @@ Skill.create(name: 'Sterowce', start_value: 0, parent_stat: Skill::STAT_NAMES[4]
 
 Skill.create(name: 'Broń drzewcowa', start_value: 8, parent_stat: Skill::STAT_NAMES[5])
 Skill.create(name: 'Broń obuchowa', start_value: 8, parent_stat: Skill::STAT_NAMES[5])
-Skill.create(name: 'Lekkoatletyka', start_value: 8, parent_stat: Skill::STAT_NAMES[5])
+Skill.create(name: 'Lekkoatletyka', start_value: 8, parent_stat: Skill::STAT_NAMES[5], is_equal_to_stat: true)
 Skill.create(name: 'Miecze', start_value: 8, parent_stat: Skill::STAT_NAMES[5])
 Skill.create(name: 'Motocykle', start_value: 8, parent_stat: Skill::STAT_NAMES[5])
 Skill.create(name: 'Noże', start_value: 8, parent_stat: Skill::STAT_NAMES[5])

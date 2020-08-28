@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_173139) do
+ActiveRecord::Schema.define(version: 2020_08_27_102450) do
 
   create_table "character_sheet_skills", force: :cascade do |t|
     t.integer "skill_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_173139) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "start_value", default: 0
+    t.boolean "is_equal_to_stat", default: false
   end
 
   create_table "users", force: :cascade do |t|
