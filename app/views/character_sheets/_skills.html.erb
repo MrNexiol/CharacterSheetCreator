@@ -20,7 +20,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '0', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '0', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
@@ -40,7 +40,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '1', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '1', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
@@ -60,7 +60,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '2', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '2', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
@@ -80,7 +80,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '3', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '3', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
@@ -100,7 +100,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '4', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '4', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
@@ -120,7 +120,7 @@
       <% end %>
       <div class="flex flex-justify-start">
         <%= cs.input :name, label: false, readonly: true, input_html: { class: 'bg-transparent cursor-default select-none outline-none' } %>
-        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '5', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
+        <%= cs.input :value, label: false, readonly: true, input_html: { 'data-isequal': cs.object.skill.is_equal_to_stat, 'data-base': cs.object.skill.start_value, 'data-id': id, 'data-parent': '5', 'data-target': 'new-character-sheet.skill', class: 'bg-transparent w-10 cursor-default select-none outline-none' } %>
         <%= cs.input :skill_id, as: :hidden %>
         <button class="bg-red-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.minusSkill">-</button>
         <button class="bg-green-600 w-6" type="button" data-action="new-character-sheet#changeSkill" data-id="<%= id %>" data-target="new-character-sheet.plusSkill">+</button>
