@@ -23,9 +23,12 @@
 class CharacterSheet < ApplicationRecord
   has_many :character_sheet_skills, dependent: :destroy
   has_many :skills, through: :character_sheet_skills
+  has_many :character_sheet_implications, dependent: :destroy
+  has_many :implications, through: :character_sheet_implications
   belongs_to :user
 
   accepts_nested_attributes_for :character_sheet_skills
+  accepts_nested_attributes_for :character_sheet_implications
 
   validates :name, presence: true
   validates :experience, numericality: { greater_than_or_equal_to: 0 }

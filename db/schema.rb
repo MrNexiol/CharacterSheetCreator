@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_102450) do
+ActiveRecord::Schema.define(version: 2020_08_30_134638) do
+
+  create_table "character_sheet_implications", force: :cascade do |t|
+    t.integer "character_sheet_id"
+    t.integer "implication_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "value", default: 0
+    t.index ["character_sheet_id"], name: "index_character_sheet_implications_on_character_sheet_id"
+    t.index ["implication_id"], name: "index_character_sheet_implications_on_implication_id"
+  end
 
   create_table "character_sheet_skills", force: :cascade do |t|
     t.integer "skill_id"
@@ -37,6 +47,14 @@ ActiveRecord::Schema.define(version: 2020_08_27_102450) do
     t.float "barter", default: 0.0
     t.float "money", default: 0.0
     t.string "description"
+  end
+
+  create_table "implications", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "is_advantage"
+    t.integer "max_level"
+    t.integer "point_cost"
   end
 
   create_table "skills", force: :cascade do |t|

@@ -1,15 +1,81 @@
 import {Controller} from "stimulus"
 
 export default class extends Controller {
-  static targets = ['exp', 'stat', 'skill', 'plus', 'minus', 'plusSkill', 'minusSkill']
+  static targets = ['exp', 'stat', 'skill', 'plus', 'minus', 'plusSkill', 'minusSkill', 'radio', 'disadvantageCurrent', 'disadvantageReal', 'disadvantageMax']
 
   connect(){
+    this.checkPoints()
+  }
+
+  changeExpFromImplication(e){
+    const group = this.radioTargets.filter(obj => {
+      return obj.dataset.group == e.target.dataset.group
+    })
+    const prev = group.find(obj => {
+      return obj.hasAttribute("checked")
+    })
+    if(e.target.dataset.isadvantage == "true"){
+      if (prev) {
+        if (parseInt(prev.value) < parseInt(e.target.value)) {
+          this.expTarget.value = parseInt(this.expTarget.value) - (parseInt(e.target.value) - parseInt(prev.value))
+        } else {
+          this.expTarget.value = parseInt(this.expTarget.value) + (parseInt(prev.value) - parseInt(e.target.value))
+        }
+        prev.removeAttribute("checked")
+      }else{
+        this.expTarget.value = parseInt(this.expTarget.value) - (parseInt(e.target.value))
+      }
+      e.target.setAttribute("checked", "")
+    } else{
+      if (prev){
+        if (parseInt(prev.value) > parseInt(e.target.value)){
+          let beforeReductionPoints = parseInt(this.disadvantageRealTarget.innerHTML)
+          this.disadvantageRealTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML) - (parseInt(prev.value) - parseInt(e.target.value))
+          if(parseInt(this.disadvantageRealTarget.innerHTML) >= parseInt(this.disadvantageMaxTarget.innerHTML)){
+            this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageMaxTarget.innerHTML)
+          }else{
+            let pointsToReduce = beforeReductionPoints - parseInt(this.disadvantageRealTarget.innerHTML)
+            this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML)
+            this.expTarget.value = parseInt(this.expTarget.value) - pointsToReduce
+          }
+          prev.removeAttribute("checked")
+        }else if (parseInt(prev.value) < parseInt(e.target.value)){
+          let beforeAdditionPoints = parseInt(this.disadvantageRealTarget.innerHTML)
+          this.disadvantageRealTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML) + (parseInt(e.target.value) - parseInt(prev.value))
+          if(parseInt(this.disadvantageRealTarget.innerHTML) >= parseInt(this.disadvantageMaxTarget.innerHTML)){
+            this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageMaxTarget.innerHTML)
+            if(beforeAdditionPoints < parseInt(this.disadvantageMaxTarget.innerHTML)){
+              let pointsToAdd = parseInt(this.disadvantageMaxTarget.innerHTML) - beforeAdditionPoints
+              this.expTarget.value = parseInt(this.expTarget.value) + pointsToAdd
+            } else {
+
+            }
+          }else{
+            this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML)
+            this.expTarget.value = parseInt(this.expTarget.value) + parseInt(this.disadvantageRealTarget.innerHTML) - beforeAdditionPoints
+          }
+          prev.removeAttribute("checked")
+        }
+      }else{
+        let beforeAdditionPoints = parseInt(this.disadvantageRealTarget.innerHTML)
+        this.disadvantageRealTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML) + parseInt(e.target.value)
+        if(parseInt(this.disadvantageRealTarget.innerHTML) >= parseInt(this.disadvantageMaxTarget.innerHTML)){
+          this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageMaxTarget.innerHTML)
+          this.expTarget.value = parseInt(this.expTarget.value) + parseInt(this.disadvantageMaxTarget.innerHTML) - beforeAdditionPoints
+        }else{
+          this.disadvantageCurrentTarget.innerHTML = parseInt(this.disadvantageRealTarget.innerHTML)
+          this.expTarget.value = parseInt(this.expTarget.value) + parseInt(this.disadvantageRealTarget.innerHTML) - beforeAdditionPoints
+        }
+      }
+      e.target.setAttribute("checked", "")
+    }
     this.checkPoints()
   }
 
   checkPoints(){
     this.checkStatLevels()
     this.checkSkillLevels()
+    this.checkImplications()
   }
 
   isStatUpgradeable(testValue){
@@ -125,6 +191,30 @@ export default class extends Controller {
       default:
         isAdding ? this.expTarget.value -= 5 : this.expTarget.value = parseInt(this.expTarget.value) + 5
         break
+    }
+  }
+
+  checkImplications(){
+    for (let i = 0; i < this.radioTargets.length; i++){
+      const radio = this.radioTargets[i]
+      const group = this.radioTargets.filter(obj => {
+        return obj.dataset.group == radio.dataset.group
+      })
+      const checkedRadio = group.find(obj => {
+        return obj.hasAttribute("checked")
+      })
+      if (checkedRadio){
+        if (parseInt(checkedRadio.value) == parseInt(radio.value)){
+          radio.disabled = false
+        } else if (parseInt(checkedRadio.value) > parseInt(radio.value)){
+          radio.disabled = false
+        } else {
+          const testValue = parseInt(radio.value) - parseInt(checkedRadio.value)
+          radio.disabled = testValue > parseInt(this.expTarget.value);
+        }
+      }else{
+        radio.disabled = parseInt(radio.value) > parseInt(this.expTarget.value);
+      }
     }
   }
 

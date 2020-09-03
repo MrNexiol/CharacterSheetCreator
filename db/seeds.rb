@@ -110,3 +110,14 @@ Skill.create(name: 'Łyżwy i rolki', start_value: 4, parent_stat: Skill::STAT_N
 Skill.create(name: 'Szybkie wydobycie', start_value: 4, parent_stat: Skill::STAT_NAMES[5])
 Skill.create(name: 'Mikrograwitacja', start_value: 0, parent_stat: Skill::STAT_NAMES[5])
 Skill.create(name: 'Ucieczka', start_value: 0, parent_stat: Skill::STAT_NAMES[5])
+
+Implication.create(name: '404', description: 'Dużo tekstu', is_advantage: false, max_level: 1, point_cost: 15)
+Implication.create(name: 'Karany', description: 'Dużo tekstu', is_advantage: false, max_level: 1, point_cost: 10)
+Implication.create(name: 'Martwy', description: 'Dużo tekstu', is_advantage: false, max_level: 1, point_cost: 10)
+Implication.create(name: 'Kiepski wzrok', description: 'Dużo tekstu', is_advantage: false, max_level: 5, point_cost: 1)
+
+Implication.create(name: 'Agent', description: 'Dużo tekstu', is_advantage: true, max_level: 4, point_cost: 5)
+Implication.create(name: 'Alternatywna tożsamość', description: 'Dużo tekstu', is_advantage: true, max_level: 1,
+                   point_cost: 15)
+Implication.create(name: 'Dodatkowa tożsamość', description: 'Dużo tekstu', is_advantage: true, max_level: 1,
+                   point_cost: 5)

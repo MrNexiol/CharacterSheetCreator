@@ -16,6 +16,9 @@ class CharacterSheetsController < ApplicationController
       Skill.all.each do |skill|
         cs.character_sheet_skills.new(skill: skill, value: skill.start_value)
       end
+      Implication.all.each do |implication|
+        cs.character_sheet_implications.new(implication: implication, value: 0)
+      end
     end
   end
 
@@ -35,7 +38,8 @@ class CharacterSheetsController < ApplicationController
   def character_sheet_params
     params.require(:character_sheet).permit(:name, :experience, :brawn, :determination,
                                             :intelligence, :perception, :dexterity, :agility,
-                                            character_sheet_skills_attributes: %i[skill_id value])
+                                            character_sheet_skills_attributes: %i[skill_id value],
+                                            character_sheet_implications_attributes: %i[implication_id value])
   end
 
   def fetch_user

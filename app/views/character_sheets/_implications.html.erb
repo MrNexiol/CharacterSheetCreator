@@ -1,0 +1,71 @@
+<%
+  advantages_count = 0
+  disadvantages_count = 0
+%>
+<%= form.simple_fields_for :character_sheet_implications do |csi| %>
+  <% if csi.object.implication.is_advantage %>
+    <% if advantages_count.even? %>
+      <% content_for :advantages_one do %>
+        <%
+          arr = []
+          csi.object.implication.max_level.times do |i|
+            arr.push(csi.object.implication.point_cost * (i+1))
+          end
+        %>
+        <div class="flex">
+          <%= csi.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent cursor-default outline-none'} %>
+          <%= csi.input :value, label: false, collection: arr, as: :radio_buttons, input_html: { 'data-isadvantage': csi.object.implication.is_advantage, 'data-group': "#{advantages_count}adv", 'data-action': 'new-character-sheet#changeExpFromImplication', 'data-target': 'new-character-sheet.radio' } %>
+          <%= csi.input :implication_id, as: :hidden %>
+        </div>
+        <% advantages_count += 1 %>
+      <% end %>
+    <% else %>
+      <% content_for :advantages_two do %>
+        <%
+          arr = []
+          csi.object.implication.max_level.times do |i|
+            arr.push(csi.object.implication.point_cost * (i+1))
+          end
+        %>
+        <div class="flex">
+          <%= csi.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent cursor-default outline-none'} %>
+          <%= csi.input :value, label: false, collection: arr, as: :radio_buttons, input_html: { 'data-isadvantage': csi.object.implication.is_advantage, 'data-group': "#{advantages_count}adv", 'data-action': 'new-character-sheet#changeExpFromImplication', 'data-target': 'new-character-sheet.radio' } %>
+          <%= csi.input :implication_id, as: :hidden %>
+        </div>
+        <% advantages_count += 1 %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% if disadvantages_count.even? %>
+      <% content_for :disadvantages_one do %>
+        <%
+          arr = []
+          csi.object.implication.max_level.times do |i|
+            arr.push(csi.object.implication.point_cost * (i+1))
+          end
+        %>
+        <div class="flex">
+          <%= csi.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent cursor-default outline-none'} %>
+          <%= csi.input :value, label: false, collection: arr, as: :radio_buttons, input_html: { 'data-isadvantage': csi.object.implication.is_advantage, 'data-group': "#{disadvantages_count}dis", 'data-action': 'new-character-sheet#changeExpFromImplication', 'data-target': 'new-character-sheet.radio' } %>
+          <%= csi.input :implication_id, as: :hidden %>
+        </div>
+        <% disadvantages_count += 1 %>
+      <% end %>
+    <% else %>
+      <% content_for :disadvantages_two do %>
+        <%
+          arr = []
+          csi.object.implication.max_level.times do |i|
+            arr.push(csi.object.implication.point_cost * (i+1))
+          end
+        %>
+        <div class="flex">
+          <%= csi.input :name, label: false, readonly: true, input_html: {class: 'bg-transparent cursor-default outline-none'} %>
+          <%= csi.input :value, label: false, collection: arr, as: :radio_buttons, input_html: { 'data-isadvantage': csi.object.implication.is_advantage, 'data-group': "#{disadvantages_count}dis", 'data-action': 'new-character-sheet#changeExpFromImplication', 'data-target': 'new-character-sheet.radio' } %>
+          <%= csi.input :implication_id, as: :hidden %>
+        </div>
+        <% disadvantages_count += 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

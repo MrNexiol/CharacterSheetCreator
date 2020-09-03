@@ -15,6 +15,7 @@ AllCops:
     - '**/db/migrate/**/*'
     - '**/db/schema.rb'
     - '**/config/initializers/simple_form.rb'
+    - '**/lib/tasks/*'
 
 Rails/Present:
   Enabled: false

@@ -13,5 +13,13 @@
     <%= skill.value %>
   </p>
 <% end %>
+<br/>
+<p>Zalety i wady</p>
+<% @sheet.character_sheet_implications.all.each do |implication| %>
+  <p>
+    <%= implication.name %>
+    <%= implication.value %>
+  </p>
+<% end %>
 <p>Experience points - <%= @sheet.experience %></p>
 <p>Money: Card - <%= @sheet.money %> Barter - <%= @sheet.barter %></p>
